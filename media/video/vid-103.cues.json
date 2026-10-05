@@ -1,0 +1,344 @@
+{
+ "video": "vid-103",
+ "src": "media/video/vid-103.mp4",
+ "poster": "media/video/vid-103.jpg",
+ "duration": 66.45,
+ "song": true,
+ "bpm": 96,
+ "voices": "song: Eleven Music v2.5 (real singing) · intro line: Habibah (Eleven v4)",
+ "scenes": [
+  {
+   "title": "المقدّمة",
+   "t": 0,
+   "thumb": "img-109"
+  },
+  {
+   "title": "الماء",
+   "t": 9.6,
+   "thumb": "img-001"
+  },
+  {
+   "title": "اللازمة الأولى",
+   "t": 29.95,
+   "thumb": "img-110"
+  },
+  {
+   "title": "الفم والحرف",
+   "t": 36.9,
+   "thumb": "img-101"
+  },
+  {
+   "title": "اللازمة الثانية",
+   "t": 51.5,
+   "thumb": "img-110"
+  },
+  {
+   "title": "الختام",
+   "t": 59.0,
+   "thumb": "img-111"
+  }
+ ],
+ "cues": [],
+ "lines": [
+  {
+   "id": "bariq_L1-01_ins-say_ar",
+   "t": 7.2,
+   "end": 8.9,
+   "sp": "HAB"
+  },
+  {
+   "id": "bariq_L1-01_song_01_ar",
+   "t": 10.0,
+   "end": 14.55,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_02_ar",
+   "t": 14.66,
+   "end": 19.75,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_01_ar",
+   "t": 19.88,
+   "end": 24.9,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_04_ar",
+   "t": 31.42,
+   "end": 35.95,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_05_ar",
+   "t": 37.39,
+   "end": 40.95,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_06_ar",
+   "t": 41.05,
+   "end": 43.1,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_05_ar",
+   "t": 43.21,
+   "end": 46.35,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_08_ar",
+   "t": 46.43,
+   "end": 50.9,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_09_ar",
+   "t": 55.04,
+   "end": 58.95,
+   "sp": "SONG",
+   "audio_t": 55.19,
+   "caption_fix_v013": "caption started 130–310 ms after the sung onset of «سَمِعْتُ» (class onset 55.06 / ASR 54.88); song audio unchanged"
+  },
+  {
+   "id": "bariq_L1-01_song_10_ar",
+   "t": 59.23,
+   "end": 61.9,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_11_ar",
+   "t": 61.97,
+   "end": 63.95,
+   "sp": "SONG"
+  },
+  {
+   "id": "bariq_L1-01_song_12_ar",
+   "t": 64.03,
+   "end": 65.8,
+   "sp": "SONG"
+  }
+ ],
+ "sfx": [
+  {
+   "id": "bariq_L1-01_sfx-door-knock",
+   "t": 29.95,
+   "end": 30.81
+  },
+  {
+   "id": "bariq_L1-01_sfx-door-knock",
+   "t": 52.45,
+   "end": 53.31
+  }
+ ],
+ "source": "v0-14 (video_src/build_v14.py): v0-13 + realistic event chain (REALISM_AUDIT.md) — physically wrong / illogical shots replaced by Grok clips R-01…R-06 from GPT start frames; native 1920×1080; audio, captions, cues and v13 mouth close-ups unchanged",
+ "edl": [
+  {
+   "t": 0.0,
+   "d": 4.7083,
+   "clip": "M-12 0–4.7",
+   "note": "المقدّمة (آلات): الأصدقاء الثلاثة — وجوه صغيرة، ابتسامات ثابتة"
+  },
+  {
+   "t": 4.725,
+   "d": 5.2917,
+   "clip": "R-04 0–5.3",
+   "note": "R-04: يدا سيف تصبّان في الصحن على العتبة — «قولوا معي، هيّا!» (حبيبة) بلا وجه"
+  },
+  {
+   "t": 10.0,
+   "d": 2.0,
+   "clip": "visemes",
+   "note": "فيزيمات GPT بغناء «مْـ…» مطبقة ثم تنفتح على «الماءُ»"
+  },
+  {
+   "t": 12.0,
+   "d": 2.6667,
+   "clip": "R-04 2.0–4.7",
+   "note": "R-04: الماء في الصحن + «ماءْ»"
+  },
+  {
+   "t": 14.66,
+   "d": 2.3333,
+   "clip": "visemes",
+   "note": "فيزيمات GPT: «مْـ…» مطبقة ثم «هذا…»"
+  },
+  {
+   "t": 17.0,
+   "d": 2.875,
+   "clip": "R-03 0.5–3.4",
+   "note": "R-03: سيف يصبّ في الصحن على العتبة — «هذا صوت الماء»"
+  },
+  {
+   "t": 19.88,
+   "d": 2.125,
+   "clip": "visemes",
+   "note": "فيزيمات GPT: «مْـ…» ثم «الماءُ»"
+  },
+  {
+   "t": 22.0,
+   "d": 1.5833,
+   "clip": "R-04 4.3–5.9",
+   "note": "R-04: الماء في الصحن"
+  },
+  {
+   "t": 23.6,
+   "d": 3.125,
+   "clip": "M-16 0–3.0",
+   "note": "فاصل آلات: الأصدقاء يتمايلون (M-16) — بديل 103-15 (الجرّة على العتبة تقطر وحدها)"
+  },
+  {
+   "t": 26.725,
+   "d": 3.25,
+   "clip": "103-16_r02 1.2–4.4",
+   "note": "فاصل آلات: قفز (لقطة واسعة) — يبدأ من 1.2 بعد قطرة الجرّة الواقفة على العتبة (0–0.7)"
+  },
+  {
+   "t": 29.95,
+   "d": 1.4583,
+   "clip": "R-06 retimed",
+   "note": "الطرقتان بمفاصل ماجد على الطاولة على صوتي الطرق (29.995 / 30.44) ثم «قف!» تجميد والقبضة على الخشب (بديل M-14: ماجد يطرق الباب من الداخل وسيف في الغرفة)"
+  },
+  {
+   "t": 31.42,
+   "d": 3.1667,
+   "clip": "M-16 2.4–4.94 retimed",
+   "note": "اللازمة «سمعت فرقاً!»: M-16 التصفيق على النبض (كلّ تصفيقة على نبضة 96/د)"
+  },
+  {
+   "t": 34.6,
+   "d": 2.7917,
+   "clip": "M-16 4.94–6.04",
+   "note": "«هيّا أصغوا معي!» — نهاية M-16 ثم تجميد"
+  },
+  {
+   "t": 37.39,
+   "d": 3.6667,
+   "clip": "visemes",
+   "note": "فيزيمات GPT بغناء «مْـ… الميمُ في الفم!»"
+  },
+  {
+   "t": 41.05,
+   "d": 2.1667,
+   "clip": "102-02_r01 1.4–3.56",
+   "note": "«هذا فم سيف» — وجه سيف، فمه مطبق (إصبعه على ذقنه)"
+  },
+  {
+   "t": 43.21,
+   "d": 3.2083,
+   "clip": "visemes | 102-04b",
+   "note": "شاشة مقسومة: الشفتان تغنّيان «مْـ… الميمُ في الفم!» | بارق مطبق + «م»"
+  },
+  {
+   "t": 46.43,
+   "d": 2.1667,
+   "clip": "visemes",
+   "note": "فيزيمات GPT: «مْـ…» (الميمُ في الماء)"
+  },
+  {
+   "t": 48.6,
+   "d": 2.375,
+   "clip": "R-04 1.0–3.4",
+   "note": "R-04: الماء في الصحن"
+  },
+  {
+   "t": 50.97,
+   "d": 4.25,
+   "clip": "R-06 retimed",
+   "note": "سكتة ثم الطرقتان على الطاولة على صوتيهما (52.495 / 52.94) و«قف!» تجميد"
+  },
+  {
+   "t": 55.19,
+   "d": 4.0417,
+   "clip": "103-12_r01 0–4.0",
+   "note": "اللازمة «سمعت فرقاً!» — قفزة ودوران (لقطة واسعة)"
+  },
+  {
+   "t": 59.23,
+   "d": 2.7083,
+   "clip": "R-03 1.0–3.7",
+   "note": "R-03: «الماءُ هنا، في الصحن!» — سيف يصبّ في الصحن على العتبة"
+  },
+  {
+   "t": 61.97,
+   "d": 2.0833,
+   "clip": "M-12 3.9–5.96",
+   "note": "«قولوا معي!» — الأصدقاء (واسعة)"
+  },
+  {
+   "t": 64.03,
+   "d": 2.4167,
+   "clip": "M-17 0–2.4",
+   "note": "«سمعت فرقاً!» الوداع"
+  }
+ ],
+ "overlays": [
+  {
+   "png": "maaL.png",
+   "t0": 12.05,
+   "t1": 13.3
+  },
+  {
+   "png": "maaL.png",
+   "t0": 18.5,
+   "t1": 19.8
+  },
+  {
+   "png": "maaL.png",
+   "t0": 22.05,
+   "t1": 23.3
+  },
+  {
+   "png": "banner.png",
+   "t0": 31.45,
+   "t1": 34.5
+  },
+  {
+   "png": "glyphS.png",
+   "t0": 43.4,
+   "t1": 46.3
+  },
+  {
+   "png": "banner.png",
+   "t0": 55.25,
+   "t1": 58.9
+  },
+  {
+   "png": "maaL.png",
+   "t0": 59.25,
+   "t1": 60.6
+  },
+  {
+   "png": "banner.png",
+   "t0": 64.05,
+   "t1": 66.2
+  }
+ ],
+ "cues_removed_v011": [
+  {
+   "id": "stop-1",
+   "kind": "stop",
+   "t": 30.85,
+   "resume": 31.36,
+   "hint": "bariq_L1-01_sfx-door-knock",
+   "ask": "bariq_L1-01_ins-same_ar"
+  },
+  {
+   "id": "stop-2",
+   "kind": "stop",
+   "t": 53.35,
+   "resume": 55.0,
+   "hint": "bariq_L1-01_sfx-door-knock",
+   "ask": "bariq_L1-01_ins-same_ar"
+  }
+ ],
+ "note": "v0-11: المالك «لا تسأل أثناء الأغنية» — الأنشودة تُكمل بلا توقّف؛ الطرقتان جزء من الإيقاع (لعبة «قف!» يؤدّيها الكبير إن شاء)",
+ "qa_v012": "v5/video/LIPSYNC_QA.md · v5/video/SHOT_AUDIT.md",
+ "qa_v013": "v5/articulation/AV_SYNC_QA.md · v5/articulation/PHONETICS.md",
+ "status": "draft_unapproved",
+ "qa_v014": "v5/video/REALISM_AUDIT.md · v5/realism/qa/",
+ "resolution": "1920x1080",
+ "fix_v014b": "hum tails: after an isolated «مْـ» the lips stay pressed (V1/V1b) until the sound is fully silent, then V0 (v5/articulation/qa/humqa_v014b.json)"
+}
