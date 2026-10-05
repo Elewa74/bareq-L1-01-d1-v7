@@ -1,0 +1,159 @@
+/* E01 · تَهَيَّأْ لِلدَّرْسِ — IX1 · v7 (قاعدة: النسخة الأولى — يقابل EL01 «تهيّأ») · draft_unapproved
+   SPEC_v7 §E01 · الناتج 1 · S1. ماذا يستطيع بعده؟ أن يلاحظ أنّ صوتاً واحداً يتكرّر في بدايات كلمات مختلفة ويختاره من بين أصوات.
+   1 بارق: bq7_E01_hello · 2 bq7_E01_intro ← ٤ بطاقات تظهر واحدة واحدة وكلّ منها تُسمَع (مَكْتَبْ · مانْجو · مُشْطْ · مِفْتاحْ)
+   3 bq7_E01_tap (لمس البطاقة يعيدها — اختياري) · 4 bq7_E01_question ← bq7_G_listen_choose ← ٣ أزرار صوت (مَ ✓ · بَ · فَ؛ مخلوطة؛ كلّ زرّ يضيء وهو يُسمَع؛ اللمس يُسمِع ثم يُحكم)
+   ✓ G_yes1 + E01_ok (البطاقات تضيء بالتتابع) · ✗١ E01_hint1 + الكلمات الأربع مقطّعة (_seg) · ✗٢ يخفت زرّ خاطئ + G_look_light · ③ E01_model · 5 E01_bridge.
+   لا رمز ولا اسم حرف ولا نصّ على شاشة الطفل (DECISIONS ب، ج). الشكل: بطاقة اللعبة الذهبية كما في «تهيّأ» الأصليّ. record('S1', ok1). */
+(function () {
+  'use strict';
+  const ID = 'E01';
+  const lib = () => (BQ.ix1 ? Promise.resolve(BQ.ix1) : BQ.loadScript('js/el7/lib/ix1.js').then(() => BQ.ix1));
+
+  const CSS = `
+.e01 { justify-content: center; }
+.e01 .e01-panel { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; gap: clamp(10px, 2.2cqi, 22px);
+  width: min(100%, 980px); height: 100%; max-height: calc(var(--i7-h) - 4px); padding: clamp(14px, 2.6cqi, 26px) clamp(12px, 2.6cqi, 30px);
+  border-radius: 34px; background: radial-gradient(ellipse at 50% 0%, #FFFDF3, var(--paper, #FFFBEA) 60%, #FFF2C9); border: 6px solid #F4C24A;
+  box-shadow: inset 0 0 0 3px #FFE7A3, 0 10px 0 #E0A821, 0 18px 34px var(--shade); }
+.e01 .e01-shelf { display: grid; grid-template-columns: repeat(4, auto); gap: clamp(10px, 2.4cqi, 26px); }
+.e01 .i7-card { --s: min(19cqi, calc((var(--i7-h) - 300px) * .95), 200px); min-width: 84px; }
+.e01 .i7-card { opacity: 0; transform: translateY(16px) scale(.9); transition: opacity .35s, transform .45s cubic-bezier(.3,1.4,.4,1), box-shadow .25s; }
+.e01 .i7-card.in { opacity: 1; transform: none; }
+.e01 .e01-q { display: flex; gap: clamp(16px, 4.5cqi, 48px); justify-content: center; align-items: center; min-height: 112px; }
+.e01 .i7-snd { --sz: clamp(96px, 12cqi, 118px); }
+.e01 .e01-q .i7-snd, .e01 .e01-ear { opacity: 0; transform: translateY(14px); pointer-events: none; } /* بلا تصغير: الحجم الحقيقيّ ثابت (≥ ٦٤) */
+.e01 .e01-q .i7-snd.in, .e01 .e01-ear.in { opacity: 1; transform: none; pointer-events: auto; transition: opacity .35s, transform .45s cubic-bezier(.3,1.4,.4,1); }
+.e01 .e01-ear { width: 64px; height: 64px; border-radius: 50%; border: 4px solid #fff; padding: 0; background: var(--sky); color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 0 #0084b6, 0 6px 12px var(--shade); }
+.e01 .e01-ear svg { width: 60%; height: 60%; }
+.e01 .e01-ear:active { transform: translateY(3px); box-shadow: 0 1px 0 #0084b6; }
+@container stage (max-width: 600px) {
+  .e01 .e01-panel { border-width: 5px; border-radius: 26px; padding: 12px 10px; }
+  .e01 .e01-shelf { grid-template-columns: repeat(2, auto); }
+  .e01 .i7-card { --s: min(36cqi, calc((var(--i7-h) - 290px) / 2 - 12px), 180px); }
+  .e01 .e01-q { gap: 10px 14px; flex-wrap: wrap; min-height: 0; }
+  .e01 .i7-snd { --sz: 96px; }
+  .e01 .e01-ear { order: 9; }
+  .e01 .e01-q::after { content: ''; order: 8; flex-basis: 100%; height: 0; }
+}
+@media (max-height: 500px) {
+  .e01 .e01-panel { flex-direction: row; justify-content: center; gap: 22px; padding: 10px 16px; border-width: 4px; border-radius: 24px; }
+  .e01 .e01-shelf { grid-template-columns: repeat(2, auto); gap: 8px; }
+  .e01 .i7-card { --s: max(76px, calc((var(--i7-h) - 46px) / 2)); min-width: 76px; border-width: 4px; border-radius: 20px; }
+  .e01 .e01-q { min-height: 0; gap: 12px; flex-wrap: nowrap; }
+  .e01 .i7-snd { --sz: 84px; }
+}
+@media (prefers-reduced-motion: reduce) { .e01 .i7-card, .e01 .e01-q .i7-snd.in, .e01 .e01-ear.in { transition: none; } }`;
+
+  function render(stage, ctx) {
+    lib().then((I) => { if (ctx.alive()) run(I, stage, ctx); })
+      .catch((e) => { console.warn('E01 lib', e); if (ctx.placeholder) ctx.placeholder(); });
+  }
+
+  function run(I, stage, ctx) {
+    const h = BQ.h;
+    if (!document.getElementById('st-e01')) document.head.append(h('style', { id: 'st-e01' }, CSS));
+    const S = I.session(ctx, { noText: true });
+    I.lines({
+      bq7_E01_hello: 'مَرْحَبًا! أَنا بارِقٌ.', bq7_E01_intro: 'اِسْمَعْ هَذِهِ الكَلِماتِ.', bq7_E01_tap: 'اِلْمِسْ كُلَّ صورَةٍ، وَاسْمَعْ.',
+      bq7_E01_question: 'ما الصَّوْتُ الَّذي يَتَكَرَّرُ؟', bq7_E01_ok: 'نَعَمْ! سَمِعْناهُ في كُلِّ كَلِمَةٍ: مَ… ما… مُ… مِ.',
+      bq7_E01_hint1: 'اِسْمَعْ أَوَّلَ كُلِّ كَلِمَةٍ.', bq7_E01_model: 'هَذا هُوَ: مَ. مَكْتَبْ، مانْجو، مُشْطْ، مِفْتاحْ.', bq7_E01_bridge: 'هَيّا نَبْحَثْ عَنْ هَذا الصَّوْتِ!',
+    });
+    const L = { hello: 'bq7_E01_hello', intro: 'bq7_E01_intro', tap: 'bq7_E01_tap', q: 'bq7_E01_question', choose: 'bq7_G_listen_choose',
+      ok: 'bq7_E01_ok', hint1: 'bq7_E01_hint1', model: 'bq7_E01_model', bridge: 'bq7_E01_bridge' };
+    const WORDS = ['maktab', 'manju', 'musht', 'miftah'];
+    const OPTS = [{ key: 'm', id: 'bq7_S_ma', c: 1 }, { key: 'b', id: 'bq7_S_ba', c: 2 }, { key: 'f', id: 'bq7_S_fa', c: 3 }];
+
+    const root = I.root(stage, 'e01');
+    const panel = h('div.e01-panel');
+    const shelf = h('div.e01-shelf', { role: 'group', 'aria-label': 'صُوَرٌ' });
+    const qrow = h('div.e01-q', { role: 'group', 'aria-label': 'أَصْواتٌ' });
+    panel.append(shelf, qrow);
+    root.append(panel);
+    const buddy = I.buddy(S, root, 'wave');
+    let phase = 'intro', busy = true;
+
+    const cards = WORDS.map((slug, i) => {
+      const c = I.card(slug, { aria: 'صورة ' + I.AR(i + 1) });
+      c.classList.add('is-gold'); c.slug = slug;
+      c.addEventListener('click', async () => { if (busy || phase === 'end' || !c.classList.contains('in')) return; busy = true; I.sfx('tick'); await I.playOn(S, c, I.wordId(c.slug)); busy = false; });
+      shelf.append(c);
+      return c;
+    });
+    const btns = BQ.shuffle(OPTS).map((o, i) => { const b = I.sndBtn({ id: o.id, key: o.key, c: o.c, aria: 'صَوْتٌ ' + I.AR(i + 1) }); b.o = o; qrow.append(b); return b; });
+    const earAll = h('button.e01-ear', { type: 'button', 'aria-label': 'أَعِدِ الأَصْواتَ', html: I.IC.ear });
+    qrow.append(earAll);
+    const right = () => btns.find((b) => b.o.key === 'm');
+
+    const playOpts = async () => {
+      for (const b of btns) { if (!b.classList.contains('in')) { b.classList.add('in'); I.sfx('pop'); await S.sleep(140); } }
+      earAll.classList.add('in');
+      await S.sleep(200);
+      for (const b of btns) { if (b.classList.contains('is-dim')) continue; await I.playOn(S, b, b.sid); await S.sleep(420); }
+    };
+    const ask = async () => { buddy.set('point', 1500); await S.say(L.q); await S.say(L.choose); await playOpts(); };
+    earAll.addEventListener('click', async () => { if (busy || phase !== 'q') return; busy = true; await playOpts(); busy = false; });
+    I.instr(S, L.intro, 'ear', async () => { if (busy) return; busy = true; if (phase === 'q') await ask(); else await S.say(L.tap); busy = false; });
+
+    let first = null;
+    const pol = I.policy(S, {
+      opts: btns, right, modelLine: L.model, next: false,
+      async hint1() { await S.say(L.hint1); for (const c of cards) { c.classList.add('is-play'); await S.stim(I.segId(c.slug)); c.classList.remove('is-play'); await S.sleep(380); } await S.sleep(200); await playOpts(); },
+      async hint2() { await playOpts(); },
+      async model() { const r = right(); await I.playOn(S, r, r.sid); },
+    });
+
+    btns.forEach((b) => b.addEventListener('click', async () => {
+      if (busy || phase !== 'q' || b.classList.contains('is-dim')) return;
+      busy = true;
+      await I.playOn(S, b, b.sid); // اللمس يُسمِع الصوت ثم يُحكم
+      if (b.o.key === 'm') {
+        if (first == null) { first = true; I.record(S, 'S1', true, { item: 'repeat-sound' }); }
+        b.classList.remove('is-soft'); b.classList.add('is-ok'); I.anim(b, 'i7-pop', 450); I.sfx('ok'); I.burst(root, b, 18); buddy.cheer();
+        btns.forEach((x) => { if (x !== b) x.classList.add('is-dim'); });
+        await S.say('bq7_G_yes1', { talk: true });
+        const pl = S.say(L.ok);
+        for (const c of cards) { await S.sleep(560); c.classList.add('is-glow'); I.sfx('sparkle'); }
+        await pl; await S.sleep(300);
+        cards.forEach((c) => c.classList.remove('is-glow'));
+        return finish();
+      }
+      if (first == null) { first = false; I.record(S, 'S1', false, { item: 'repeat-sound', picked: b.o.key }); }
+      I.anim(b, 'i7-wob', 550); I.sfx('soft');
+      const st = await pol.wrong(b);
+      if (st === 'model') return finish();
+      busy = false;
+    }));
+
+    async function finish() {
+      phase = 'end';
+      I.note(S, '<p><b>نتيجة «تهيّأ للدرس» (S1):</b> ' + (first ? 'اختار «مَ» من المحاولة الأولى.' : pol.n >= 3 ? 'رأى النموذج بعد محاولتين — أعِد معه «اسمع واكتشف».' : 'اختاره بعد تلميح.') + ' (قرينة للمعلّم؛ الإتقان يُقرَّر في «تحقّق من تقدّمي».)</p>');
+      buddy.set('cheer');
+      await S.say(L.bridge, { talk: true });
+      I.finish(S, { pose: 'cheer' });
+    }
+
+    (async () => {
+      await S.sleep(450);
+      await S.say(L.hello, { talk: true });
+      buddy.set('idle');
+      await S.say(L.intro);
+      for (const c of cards) {
+        c.classList.add('in'); I.sfx('flip');
+        await S.sleep(380);
+        await I.playOn(S, c, I.wordId(c.slug));
+        await S.sleep(320);
+      }
+      phase = 'tap'; busy = false;
+      I.instr(S, L.tap, 'hand', async () => { if (busy) return; busy = true; await S.say(L.tap); busy = false; });
+      await S.say(L.tap);
+      await S.sleep(2600);
+      while (busy) await S.sleep(200); // ينتظر انتهاء إعادة بطاقة لمسها الطفل
+      busy = true; phase = 'q';
+      I.instr(S, L.q, 'hand', async () => { if (busy) return; busy = true; await ask(); busy = false; });
+      await ask();
+      busy = false;
+    })();
+  }
+
+  BQ.register(ID, { render });
+})();

@@ -1,0 +1,146 @@
+{
+ "id": "bq7_E12_song",
+ "source": "Eleven Music v2.5 (flow fuexUBY2XSSBiPtFcSK0, variation A of 3), lyrics = creative/SONG_FINAL_v7.md (sung lines only; bar-20 spoken line is bq7_E12_brq_name, not in the music)",
+ "status": "draft_unapproved",
+ "files": {
+  "mix": "media/audio7/bq7_song.mp3",
+  "alias": "media/audio7/bq7_E12_song.mp3",
+  "bed": "media/audio7/bq7_song_bed.mp3"
+ },
+ "levels": {
+  "bq7_song.mp3": {
+   "dur": 60.03,
+   "lufs": -16.4,
+   "tp": -1.9
+  },
+  "bq7_song_bed.mp3": {
+   "dur": 60.06,
+   "lufs": -19.1,
+   "tp": -2.0
+  }
+ },
+ "timing_method": "demucs vocal stem → windowed Whisper-large-v3-turbo word timestamps (lyric DP alignment) + vocal-activity segmentation; ±0.3 s",
+ "note": "measured ~104 BPM; vocals start 6.9 s (≈3 bars instrumental intro); chorus diction is sung (ASR-approximate); no closed-lip nasal run >0.4 s detected in the vocal stem",
+ "lines": [
+  {
+   "i": 0,
+   "section": "intro",
+   "text": "يا ماجِدْ! يا ماجِدْ!",
+   "start": 6.92,
+   "end": 8.43
+  },
+  {
+   "i": 1,
+   "section": "refrain1",
+   "text": "مَ، مِ، مُ… صَفِّقْ مَعي!",
+   "start": 9.42,
+   "end": 13.27
+  },
+  {
+   "i": 2,
+   "section": "refrain1",
+   "text": "ما، مي، مو… غَنِّ مَعي!",
+   "start": 14.09,
+   "end": 17.81
+  },
+  {
+   "i": 3,
+   "section": "verse1",
+   "text": "مَ، مَ… مَكْتَبْ!",
+   "start": 19.32,
+   "end": 21.62
+  },
+  {
+   "i": 4,
+   "section": "verse1",
+   "text": "مُ، مُ… مُشْطْ!",
+   "start": 21.62,
+   "end": 23.4
+  },
+  {
+   "i": 5,
+   "section": "verse1",
+   "text": "مِ، مِ… مِفْتاحْ!",
+   "start": 23.4,
+   "end": 25.04
+  },
+  {
+   "i": 6,
+   "section": "verse1",
+   "text": "تِمْساحْ! تِمْساحْ!",
+   "start": 25.04,
+   "end": 26.24
+  },
+  {
+   "i": 7,
+   "section": "verse1",
+   "text": "مَ، مِ، مُ… قَصيرَةْ!",
+   "start": 26.24,
+   "end": 28.02
+  },
+  {
+   "i": 8,
+   "section": "refrain2",
+   "text": "مَ، مِ، مُ… صَفِّقْ مَعي!",
+   "start": 28.02,
+   "end": 32.92
+  },
+  {
+   "i": 9,
+   "section": "refrain2",
+   "text": "ما، مي، مو… غَنِّ مَعي!",
+   "start": 33.39,
+   "end": 35.9
+  },
+  {
+   "i": 10,
+   "section": "verse2",
+   "text": "ما… مانْجو!",
+   "start": 35.99,
+   "end": 40.1
+  },
+  {
+   "i": 11,
+   "section": "verse2",
+   "text": "مي… قَميصْ!",
+   "start": 40.62,
+   "end": 42.56
+  },
+  {
+   "i": 12,
+   "section": "verse2",
+   "text": "مو… نُمورْ!",
+   "start": 42.56,
+   "end": 44.0
+  },
+  {
+   "i": 13,
+   "section": "verse2",
+   "text": "ما… مي… مو… طَويلَةْ!",
+   "start": 44.06,
+   "end": 47.63
+  },
+  {
+   "i": 14,
+   "section": "bridge",
+   "text": "صَوْتُهُ: مَ!",
+   "start": 47.63,
+   "end": 49.91
+  },
+  {
+   "i": 15,
+   "section": "refrain3",
+   "text": "مَ، مِ، مُ… صَفِّقْ مَعي!",
+   "start": 53.05,
+   "end": 56.85
+  },
+  {
+   "i": 16,
+   "section": "outro",
+   "text": "شُكْرًا يا ماجِدْ!",
+   "start": 57.58,
+   "end": 59.18
+  }
+ ],
+ "note_R2_fix": "2026-10-05: refrain3 re-timed from vocal stem (vocals 53.05–56.85 s); line «ما، مي، مو… غَنِّ مَعي!» of refrain3 is NOT sung in the take — removed (R2 F3). Word-level karaoke must be re-timed by VIDEO from stem onsets."
+}
